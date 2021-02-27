@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
-const uri = "mongodb://127.0.0.1:27017/?compressors=snappy&gssapiServiceName=mongodb";
+const uri = "mongodb+srv://root:admin@cluster0.cs2pv.mongodb.net/homestayDatabase?retryWrites=true&w=majority";
 mongodb.connect(uri, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 
 const connection = mongodb.connection;
