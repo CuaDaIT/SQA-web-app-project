@@ -3,7 +3,6 @@ const cors = require('cors');
 const mongodb = require('mongoose');
 
 const app = express();
-const port = 5000;
 
 app.use(cors());
 app.use(express.urlencoded({extended:false}));
@@ -29,6 +28,4 @@ app.use("/homestay",homestay)
 app.use("/broad",broad)
 app.use("/review",review)
 
-app.listen(port,()=>{
-    console.log("server running on port"+port)
-});
+app.listen(process.env.PORT || 5000)
