@@ -7,7 +7,73 @@
     <title>SQA API</title>
 </head>
 <body>
-    <h3>Hello World!</h3>
-    <img src="https://i.ibb.co/FYtL6DG/timothy-9.webp" alt="fe856285babbe8f1be9b9138434c07e6">
+    <h1>Main url</h1>
+    <p>https://sqa-api.herokuapp.com/</p>
+    <!--  -->
+    <h3>Admin endpoint</h3>
+    <p>/admin</p><p>method:POST</p>
+    <p><b>• add admin request body</b></p><p>{<br>
+        "username":{type:String,required:true,unique:true},<br>
+        "password":{type:String,required:true}<br>
+    }</p><br>
+    <p><b>• check account exist request body</b></p><p>method:POST</p><p>{<br>
+        "username":{type:String,required:true},<br>
+        "password":{type:String,required:true}<br>
+    }<br>return type: string<br>"true": login success<br>"false":worng password<br>"Not Found!":account doesn't exist</p>
+    <!--  -->
+    <h3>User endpoint</h3>
+    <p>/user</p><p>method:POST</p>
+    <p><b>• add user request body</b></p><p>{<br>
+        "name":{type:String,required:true},<br>
+        "email":{type:String,required:true,unique:true},<br>
+        "phone":{type:String,required:true},<br>
+        "address":{type:String,required:true},<br>
+        "password":{type:String,required:true}<br>
+    }</p><br>
+    <p><b>• check account exist request body</b></p><p>method:POST</p><p>{<br>
+        "email":{type:String,required:true},<br>
+        "password":{type:String,required:true}<br>
+    }<br>return type: mix<br>json object: login success<br>"false":worng password<br>"Not Found!":account doesn't exist</p>
+    <!--  -->
+    <h3>Broadnew endpoint</h3>
+    <p>/broad</p><p>method:POST</p>
+    <p><b>• add broadnew request body</b></p><p>{<br>
+        "title":{type:String,required:true},<br>
+        "content":{type:String,required:true},<br>
+        "image_link":{type:String,required:true},<br>
+        "address":{type:String,required:true}<br>
+    }</p><br>
+    <!--  -->
+    <h3>Homestay endpoint</h3>
+    <p>/homestay</p><p>method:POST</p>
+    <p><b>• add homestay request body</b></p><p>{<br>
+        "catalog_name":{type:String,required:true},<br>
+        "name":{type:String,required:true},<br>
+        "price":{type:Number,required:true},<br>
+        "address":{type:String,required:true},<br>
+        "description":{type:String},<br>
+        "roomtype":{type:Array},<br>
+        "image_link":{type:Array}<br>
+    }</p><br>
+    <!--  -->
+    <h3>Review endpoint</h3>
+    <p>/review</p><p>method:POST</p>
+    <p><b>• add review request body</b></p><p>{<br>
+        "homestay_id":{type:String,required:true},<br>
+    "name":{type:String,required:true},<br>
+    "email":{type:String,required:true},<br>
+    "content":{type:String,required:true}<br>
+    }</p><br>
+    <!--  -->
+    <h3>Transaction endpoint</h3>
+    <p>/transaction</p><p>method:POST</p>
+    <p><b>• add transaction request body</b></p><p>{<br>
+        "user_id":{type:String,required:true},<br>
+    "homestay_id":{type:String,required:true},<br>
+    "amount":{type:Number,required:true},<br>
+    }</p>
+    <p>return a transaction object with payment amount calculated</p>
+    <h3>Get single object</h3>
+    <p>/*endpointName*/getOne<br>method: POST<br>body:{"_id":""}</p>
 </body>
 </html>

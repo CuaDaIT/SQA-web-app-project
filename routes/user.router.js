@@ -1,5 +1,6 @@
 const router = require('express').Router();
-let User = require("../models/user.model")
+let User = require("../models/user.model");
+const { route } = require('./admin.router');
 
 router.route("/").get((req,res)=>{
     User.find()
@@ -32,6 +33,18 @@ router.route("/").put((req,res)=>{
     User.findByIdAndUpdate(filter,update)
     .then(()=>res.json("updated!"))
     .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route("/login").post((req,res)=>{
+    User.findOne({"email":req.body.email})
+    .then(user => {
+        if(user.password === req.body.password){
+            res.json(user)
+        }else{
+            res.json("false")
+        }
+    })
+    .catch(() => res.json("Not Found!"))
 })
 
 module.exports = router

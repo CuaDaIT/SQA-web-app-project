@@ -8,9 +8,15 @@ router.route("/").get((req,res)=>{
 })
 
 router.route("/getOne").post((req,res)=>{
-    Admin.findById(req.body._id)
-    .then(admin => res.json(admin))
-    .catch(err => res.status(400).json('Error: '+err))
+    Admin.findOne({"username":req.body.username})
+    .then(admin => {
+        if(admin.password === req.body.password){
+            res.json("true")
+        }else{
+            res.json("false")
+        }
+    })
+    .catch(() => res.json("Not Found!"))
 })
 
 router.route("/").post((req,res)=>{
