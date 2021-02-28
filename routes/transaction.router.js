@@ -8,13 +8,13 @@ router.route("/").get((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
-router.route("/").post((req,res)=>{
+router.route("/getOne").post((req,res)=>{
     Transaction.findById(req.body._id)
     .then(transaction => res.json(transaction))
     .catch(err => res.status(400).json('Error: '+err))
 })
 
-router.route("/add").post((req,res)=>{
+router.route("/").post((req,res)=>{
     let user_id = req.body.user_id
     let homestay_id = req.body.homestay_id
     let amount = req.body.amount
@@ -31,7 +31,7 @@ router.route("/add").post((req,res)=>{
     })
 })
 
-router.route('/delete').delete((req,res)=>{
+router.route('/').delete((req,res)=>{
     Transaction.findByIdAndDelete(req.body._id)
     .then(transaction=>res.json(transaction + "deleted!"))
     .catch(err => res.status(400).json('Error: '+err))
