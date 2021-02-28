@@ -21,11 +21,13 @@ const admin = require("./routes/admin.router")
 const homestay = require("./routes/homestay.router")
 const broad = require("./routes/broadnew.router")
 const review = require("./routes/review.router")
+const transaction = require("./routes/transaction.router")
 
 app.use("/user",user)
 app.use("/admin",admin)
 app.use("/homestay",homestay)
 app.use("/broad",broad)
 app.use("/review",review)
+app.use("/transaction",transaction)
 
 app.listen(process.env.PORT || 5000)

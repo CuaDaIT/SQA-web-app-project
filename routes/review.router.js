@@ -14,9 +14,8 @@ router.route("/").post((req,res)=>{
 })
 
 router.route("/add").post((req,res)=>{
-    let review = new Review(req.body.json)
+    let review = new Review(req.body)
     review.save()
-    .then(review => res.json(review))
     .then(()=>res.json("added!"))
     .catch(err => res.status(400).json('Error: '+err))
 })

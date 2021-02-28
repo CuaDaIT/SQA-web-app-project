@@ -14,10 +14,7 @@ router.route("/").post((req,res)=>{
 })
 
 router.route("/add").post((req,res)=>{
-    let username = req.body.name
-    let password = req.body.password
-
-    let admin = new Admin({username,password})
+    let admin = new Admin(req.body)
 
     admin.save()
     .then(()=>res.json("added!"))

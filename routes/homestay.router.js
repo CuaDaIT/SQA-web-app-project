@@ -14,10 +14,9 @@ router.route("/").post((req,res)=>{
 })
 
 router.route("/add").post((req,res)=>{
-    let homestay = new Homestay(req.body.json)
+    let homestay = new Homestay(req.body)
     homestay.save()
     .then(homestay => res.json(homestay))
-    .then(()=>res.json("added!"))
     .catch(err => res.status(400).json('Error: '+err))
 })
 

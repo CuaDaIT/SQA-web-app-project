@@ -9,7 +9,7 @@ const HomestaySchema = new Schema({
     price:{type:Number,require:true},
     address:{type:String,require:true},
     description:{type:String},
-    image_link:{type:String}
+    image_link:{type:Array}
 })
 
 const Homestay = mongodb.model("Homestay", HomestaySchema)

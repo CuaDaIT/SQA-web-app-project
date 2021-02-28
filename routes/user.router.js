@@ -14,13 +14,7 @@ router.route("/").post((req,res)=>{
 })
 
 router.route("/add").post((req,res)=>{
-    const name = req.body.name
-    const email = req.body.email
-    const phone = req.body.phone
-    const address = req.body.address
-    const password = req.body.password
-
-    let user = new User({name,email,phone,address,password})
+    let user = new User(req.body)
     user.save()
     .then(()=>res.json("added!"))
     .catch(err => res.status(400).json('Error: '+err))
