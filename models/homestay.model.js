@@ -4,10 +4,10 @@ const mongodb = require("mongoose")
 const Schema = mongodb.Schema
 
 const HomestaySchema = new Schema({
-    catalog_name:{type:String,require:true},
-    name:{type:String,require:true},
-    price:{type:Number,require:true},
-    address:{type:String,require:true},
+    catalog_name:{type:String,required:true},
+    name:{type:String,required:true},
+    price:{type:Number,required:true},
+    address:{type:String,required:true},
     description:{type:String},
     roomtype:{type:Array},
     image_link:{type:Array}

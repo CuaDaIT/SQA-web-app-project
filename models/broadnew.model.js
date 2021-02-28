@@ -2,10 +2,10 @@ const mongodb = require("mongoose")
 const Schema = mongodb.Schema
 
 const newSchema = new Schema({
-    title:{type:String,require:true},
-    content:{type:String,require:true},
-    image_link:{type:String,require:true},
-    address:{type:String,require:true},
+    title:{type:String,required:true},
+    content:{type:String,required:true},
+    image_link:{type:String,required:true},
+    address:{type:String,required:true},
     created:{type:Date,default:new Date()}
 })
 
