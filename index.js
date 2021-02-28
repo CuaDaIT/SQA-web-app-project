@@ -31,7 +31,7 @@ app.use("/review",review)
 app.use("/transaction",transaction)
 
 app.get("/", function(req,res){
-    res.sendFile("index.html")
+    res.sendFile("./index.html",{ root: __dirname })
 })
 
 app.listen(process.env.PORT || 5000)
