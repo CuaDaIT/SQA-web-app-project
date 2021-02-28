@@ -9,6 +9,7 @@ const HomestaySchema = new Schema({
     price:{type:Number,require:true},
     address:{type:String,require:true},
     description:{type:String},
+    roomtype:{type:Array},
     image_link:{type:Array}
 })
 

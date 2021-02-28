@@ -34,4 +34,23 @@ router.route("/").put((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
+router.route('/many').post((req,res)=>{
+    try {
+        let array = req.body
+        for( let i =0; i<array.length;i++){
+            let homestay = new Homestay(array[i])
+            homestay.save()
+        }
+        res.json("added")
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+
+router.route("/deleteall").delete((req,res)=>{
+    Homestay.remove()
+    .then(()=>res.json("deleted all record!"))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
 module.exports = router
