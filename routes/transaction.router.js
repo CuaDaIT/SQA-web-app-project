@@ -39,7 +39,15 @@ router.route('/').delete((req,res)=>{
 
 router.route('/history').post((req,res)=>{
     Transaction.find({'user_id':req.body.user_id})
-    .then(history=>res.json(history))
+    .then(history=>{
+        history.forEach(element => {
+            Homestay.findById(element.homestay_id)
+            .then(homestay=>{
+                element["homestay_name"]=homestay.name
+            })
+        });
+        res.json(history)
+    })
     .catch(err => res.status(400).json('Error: '+err))
 })
 
