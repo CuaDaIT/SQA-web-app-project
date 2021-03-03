@@ -53,4 +53,10 @@ router.route("/deleteall").delete((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
+router.route("/catalog").post((req,res)=>{
+    Homestay.find({"catalog_name":req.body.catalog_name})
+    .then(homestay=>res.json(homestay))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
 module.exports = router
