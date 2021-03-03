@@ -37,4 +37,10 @@ router.route('/').delete((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
+router.route('/history').post((req,res)=>{
+    Transaction.find({'user_id':req.body.user_id})
+    .then(history=>res.json(history))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
 module.exports = router

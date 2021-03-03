@@ -16,7 +16,7 @@
         "username":{type:String,required:true,unique:true},<br>
         "password":{type:String,required:true}<br>
     }</p><br>
-    <p><b>• check account exist request body</b></p><p>method:POST</p><p>{<br>
+    <p><b>• check account exist request body</b></p><br><p>/admin</p><p>method:POST</p><p>{<br>
         "username":{type:String,required:true},<br>
         "password":{type:String,required:true}<br>
     }<br>return type: string<br>"true": login success<br>"false":worng password<br>"Not Found!":account doesn't exist</p>
@@ -30,7 +30,7 @@
         "address":{type:String,required:true},<br>
         "password":{type:String,required:true}<br>
     }</p><br>
-    <p><b>• check account exist request body</b></p><p>method:POST</p><p>{<br>
+    <p><b>• check account exist request body</b></p><br><p>/admin</p><p>method:POST</p><p>{<br>
         "email":{type:String,required:true},<br>
         "password":{type:String,required:true}<br>
     }<br>return type: mix<br>json object: login success<br>"false":worng password<br>"Not Found!":account doesn't exist</p>
@@ -73,6 +73,7 @@
     "amount":{type:Number,required:true},<br>
     }</p>
     <p>return a transaction object with payment amount calculated</p>
+    <p>get all transaction of an user<br>/transaction/history</p><p>Method:POST</p><br><p>body: {"user_id":""}</p>
     <h3>Get single object</h3>
     <p>/*endpointName*/getOne<br>method: POST<br>body:{"_id":""}</p>
 </body>
