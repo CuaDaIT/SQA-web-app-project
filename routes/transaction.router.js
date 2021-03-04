@@ -23,8 +23,9 @@ router.route("/").post((req,res)=>{
     Homestay.findById(homestay_id)
     .then(homestay => {
         payment = homestay.price*amount
+        homestay_name = homestay.name
 
-        const transaction = new Transaction({user_id,homestay_id,amount,payment})    
+        const transaction = new Transaction({user_id,homestay_id,homestay_name,amount,payment})    
         transaction.save()
         .then(transaction => res.json(transaction))
         .catch(err => res.status(400).json('Error: '+err))
@@ -39,15 +40,7 @@ router.route('/').delete((req,res)=>{
 
 router.route('/history').post((req,res)=>{
     Transaction.find({'user_id':req.body.user_id})
-    .then(history=>{
-        history.forEach(element => {
-            Homestay.findById(element.homestay_id)
-            .then(homestay=>{
-                element["homestay_name"]=homestay.name
-            })
-        });
-        res.json(history)
-    })
+    .then(history=>res.json(history))
     .catch(err => res.status(400).json('Error: '+err))
 })
 

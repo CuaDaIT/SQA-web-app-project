@@ -4,6 +4,7 @@ const Schema = mongodb.Schema
 const TransactionSchema = new Schema({
     user_id:{type:String,required:true},
     homestay_id:{type:String,required:true},
+    homestay_name:{type:String},
     payment:{type:Number},
     amount:{type:Number,required:true},
     created:{type:Date,default:new Date()}
