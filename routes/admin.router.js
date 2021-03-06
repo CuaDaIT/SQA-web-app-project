@@ -36,9 +36,21 @@ router.route('/').delete((req,res)=>{
 router.route("/").put((req,res)=>{
     let filter = {"_id":req.params.id}
     let update = req.body.json
-    ADmin.findByIdAndUpdate(filter,update)
+    Admin.findByIdAndUpdate(filter,update)
     .then(()=>res.json("updated!"))
     .catch(err => res.status(400).json('Error: '+err))
+})
+
+router.route("/login").post((req,res)=>{
+    Admin.findOne({"username":req.body.username})
+    .then(admin => {
+        if(admin.password === req.body.password){
+            res.json(admin)
+        }else{
+            res.json("false")
+        }
+    })
+    .catch(() => res.json("Not Found!"))
 })
 
 module.exports = router
