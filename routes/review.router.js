@@ -34,4 +34,10 @@ router.route("/").put((req,res)=>{
     .catch(err => res.status(400).json('Error: '+err))
 })
 
+router.route("/homestay").post((req,res)=>{
+    Review.find({"homestay_id":req.body.homestay_id})
+    .then(review => res.json(review))
+    .catch(err => res.status(400).json('Error: '+err))
+})
+
 module.exports = router
